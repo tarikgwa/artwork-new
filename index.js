@@ -121,7 +121,7 @@ app.post('/', function (req, res) {
         // main function for create art (end)
 
         res.render('launch')
-        
+
 
       } catch (error) {
         console.log(error);
@@ -153,7 +153,24 @@ app.post('/', function (req, res) {
     // },)
 
     // res.render('launch')
+
   })
+
+  // code for delete folder start
+  const fs2 = require('fs');
+
+  // directory path
+  const dir2 = './layers/';
+
+  // delete directory recursively
+  try {
+    fs2.rmdirSync(dir2, { recursive: true });
+
+    console.log(`${dir2} is deleted!`);
+  } catch (err) {
+    console.error(`Error while deleting ${dir2}.`);
+  }
+  // end
 })
 
 let port = process.env.PORT || 5000
