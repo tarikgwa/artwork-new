@@ -26,78 +26,21 @@ const solanaMetadata = {
 const fs = require('fs')
 
 // const dir = '/Users/flavio/folder'
-const dir = './layers'
-const files = fs.readdirSync(dir)
+// const dir = './layers'
+// const files = fs.readdirSync(dir)
 
-for (const file of files) {
-  console.log("*******************************************************", file)
-}
+// for (const file of files) {
+//   console.log("*******************************************************", file)
+// }
 
 // end
-
-
-
-// // code for delete folder start
-// const fs2 = require('fs');
-
-// // directory path
-// const dir2 = './layers/';
-
-// // delete directory recursively
-// try {
-//   fs2.rmdirSync(dir2, { recursive: true });
-
-//   console.log(`${dir2} is deleted!`);
-// } catch (err) {
-//   console.error(`Error while deleting ${dir2}.`);
-// }
-// // end
-
 
 
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 50,
-    layersOrder: [
-      // { name: "Background" },
-      // { name: "Eyeball" },
-      // { name: "Eye color" },
-      // { name: "Iris" },
-      // { name: "Shine" },
-      // { name: "Bottom lid" },
-      // { name: "Top lid" },
-
-
-
-      // { name: "SKIN" },
-      { name: files[5] },
-      // { name: "HATS" },
-      { name: files[2] },
-      // { name: "EYES" },
-      { name: files[0] },
-      // { name: "GLASSES" },
-      { name: files[1] },
-      // { name: "MOUTH" },
-      { name: files[3] },
-      // { name: "SHIRTS" },
-      { name: files[4] },
-
-
-
-      // {
-      //   name: "EYES", options: {
-      //     blend: MODE.darken,
-      //     // opacity: 0.2,
-      //     displayName: "Awesome Eye Color",
-      //   },
-      // },
-
-
-
-      // { name: "MOUTH", options: { blend: MODE.overlay, opacity: 0.7 } },
-
-    ],
+    growEditionSizeTo: 5,
+    layersOrder: []
   },
 ];
 

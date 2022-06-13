@@ -10,6 +10,7 @@
 
 // adding
 
+
 let express = require("express"),
   ejs = require('ejs'),
   app = express(),
@@ -19,6 +20,11 @@ let express = require("express"),
 const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
+
+const fs2 = require('fs');
+
+// const config = require('src/config');
+const config = require('./src/config');
 
 // extra for file unzip
 const decompress = require("decompress");
@@ -109,6 +115,30 @@ app.post('/', function (req, res) {
         });
         console.log(files);
 
+        const dir = './layers'
+        const layers = fs2.readdirSync(dir);
+
+        for (const file of layers) {
+          console.log("*******************************************************", file)
+        }
+
+        const generatedLayers = [
+          // { name: "SKIN" },
+          { name: layers[5] },
+          // { name: "HATS" },
+          { name: layers[2] },
+          // { name: "EYES" },
+          { name: layers[0] },
+          // { name: "GLASSES" },
+          { name: layers[1] },
+          // { name: "MOUTH" },
+          { name: layers[3] },
+          // { name: "SHIRTS" },
+          { name: layers[4] },
+        ]
+
+          config.layerConfigurations[0].layersOrder = generatedLayers
+
         // main function for create art (start)
         const basePath = process.cwd();
         const { startCreating, buildSetup } = require("./src/main.js");
@@ -157,7 +187,7 @@ app.post('/', function (req, res) {
   })
 
   // code for delete folder start
-  const fs2 = require('fs');
+  // const fs2 = require('fs');
 
   // directory path
   const dir2 = './layers/';
